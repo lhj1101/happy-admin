@@ -22,10 +22,15 @@ console.log(store.double); // double  10*2=20
     <button @click="store.increment">按钮点击调用increment方法</button>
   </div>
 
+  <div class="l-size content">
+    123456
+  </div>
+
+
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<style scoped lang="scss">
+.content{
+  color: $color-red;
 }
 </style>
