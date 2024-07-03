@@ -10,4 +10,11 @@ export default defineConfig({
       '@': path.resolve('./src') // @代替src
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/styles/constant.scss";'
+      }
+    }
+  }
 })
