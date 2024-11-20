@@ -1,0 +1,23 @@
+$themes: (
+  //红色主题
+  red:
+    (
+      font-color: red,//字体颜色
+      border-color: rgb(243, 73, 73),//边框颜色
+      background-color:rgb(240, 2, 2),//背景色
+    ),
+  //绿色主题
+  green:
+    (
+      font-color: green,
+      border-color: rgb(16, 218, 16),
+      background-color:rgb(38, 110, 38),
+    ),
+  //蓝色主题
+  blue:
+    (
+      font-color: blue,
+      border-color: rgb(23, 23, 175),
+      background-color:rgb(18, 18, 94),
+    )
+);

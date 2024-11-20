@@ -1,0 +1,44 @@
+// 更改主题色方法
+// document.documentElement.setAttribute('data-theme','xxx')
+
+// 引入主题变量
+@import "./theme.scss";
+// 已经在main.js中引入了scss 全局样式
+// @import "./index.scss";
+
+//主题遍历生成样式
+@mixin theme-foreach {
+  @each $theme-name, $theme-map in $themes {
+    $theme-map: $theme-map !global;//变量通过!global提升为全局变量,供后续取值使用
+    [data-theme="#{'' + $theme-name}"] & {
+       //插槽占位
+      @content;
+    }
+  }
+}
+
+//获取主题属性值
+@function theme-value($key) {
+  @return map-get($theme-map, $key);
+}
+
+//设置字体颜色
+@mixin font-color {
+  @include theme-foreach {
+    color: theme-value("font-color") !important;
+  }
+}
+
+//设置边框颜色
+@mixin border-color {
+  @include theme-foreach {
+    border-color: theme-value("border-color") !important;
+  }
+}
+
+//设置背景颜色
+@mixin background-color {
+  @include theme-foreach {
+    background-color: theme-value("background-color") !important;
+  }
+}

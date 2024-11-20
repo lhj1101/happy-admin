@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     123
-    <div>
+    <div class="count colorblue">
       {{ store.count }}
     </div>
     <div>
@@ -31,9 +31,14 @@ console.log(store.double); // double  10*2=20
 
 <style scoped lang="scss">
 .content{
-  color: $color-red;
+  // color: $color-red;
+  @include font-color;//设置字体颜色
 }
 .hello{
   // background-color: $color-red;
+}
+.count{
+  @include font-color;//设置字体颜色
+  color: blue !important;
 }
 </style>
