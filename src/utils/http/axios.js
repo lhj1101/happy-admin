@@ -47,5 +47,22 @@ instance.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+// 封装GET请求
+export function get(url, params = {}) {
+  return instance({
+    url,
+    method: 'GET',
+    params
+  });
+}
+
+// 封装POST请求
+export function post(url, data = {}) {
+  return instance({
+    url,
+    method: 'POST',
+    data
+  });
+}
 
 export default instance

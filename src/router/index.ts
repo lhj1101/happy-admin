@@ -8,6 +8,7 @@ const routes = [
     // component: () => import('../components/HelloWorld.vue')
     component: () => import('@/components/HelloWorld.vue')
    },
+   { path: '/:pathMatch(.*)*', component: () => import('@/components/404.vue') }  // 确保有一个404页面
 ]
 
 const router = createRouter({
