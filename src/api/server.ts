@@ -14,7 +14,7 @@ interface FcResponse<T> {
   data: T
 }
 
-const baseURL = 'http://xxx.xxx.xxx.xxx:8080'
+const baseURL = 'http://www.novlyb.com:80'
 
 axios.create({
   baseURL: baseURL, // 替换为您的 API 地址

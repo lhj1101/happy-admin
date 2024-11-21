@@ -18,8 +18,8 @@ export function getUserInfo() {
       
   //   // )
   // })
-  Post (
-    '/api/userInfo',
+  Get (
+    '/dev/app-projectSavior/home/getBanners',
     {}
   )
 }
