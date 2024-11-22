@@ -19,7 +19,7 @@ export function getUserInfo() {
   //   // )
   // })
   Get (
-    '/dev/app-projectSavior/home/getBanners',
+    '/api/dev/app-projectSavior/home/getBanners',
     {}
   )
 }
