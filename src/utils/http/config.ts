@@ -3,7 +3,7 @@
  * 用于配置axios实例的基本参数
  */
 export const API_CONFIG = {
-  baseURL: import.meta.env.VITE_API_BASE_URL || '', // API基础URL,从环境变量获取,默认为空字符串
+  baseURL: '/api', // 统一使用 /api 前缀，将通过 vite 代理转发
   timeout: 60000, // 请求超时时间,单位毫秒
   // withCredentials: true, // 跨域请求时是否需要使用凭证
 } as const;

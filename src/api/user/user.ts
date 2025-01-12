@@ -8,10 +8,3 @@ export const userApi = (data = {}) => {
   })
 }
 
-export const createUser = (data = {}) => {
-  return Post<BaseRequestParams>({
-    url: '/api/user/create',
-    data
-  })
-}
-
