@@ -13,6 +13,8 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@assets': path.resolve(__dirname, 'src/assets')
       },
     },
     css: {
@@ -41,10 +43,16 @@ export default defineConfig(({ command, mode }) => {
       minify: 'terser',
       terserOptions: {
         compress: {
-          // drop_console: true,
-          // drop_debugger: true,
+          // drop_console: mode === 'production', // 生产环境移除 console
+          // drop_debugger: mode === 'production' // 生产环境移除 debugger
         },
       },
     },
+    optimizeDeps: {
+      // 将频繁使用的包加入预构建
+      include: ['vue', 'vue-router', 'pinia', 'axios'],
+      // 排除不需要预构建的依赖
+      exclude: [] 
+    }
   }
 })
