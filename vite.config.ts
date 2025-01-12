@@ -17,5 +17,18 @@ export default defineConfig({
         additionalData: '@import "@/styles/handle.scss";',
       }
     }
+  },
+  server: {
+    port: 3000, // 设置服务器端口
+    open: true, // 自动打开浏览器
+    proxy: {
+      '/api': {
+        target: 'https://www.novlyb.com', // 你的后端 API 地址
+        changeOrigin: true,
+        secure: false, // 忽略SSL证书验证
+        ws: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })
