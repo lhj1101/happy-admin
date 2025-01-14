@@ -3,7 +3,7 @@ import { BaseRequestParamsGet } from '@/types/http'
 
 export const userApi = (params = {}) => {
   return Get<BaseRequestParamsGet>({
-    url: '/app-projectSavior/home/getBanners',
+    url: '/xxx/xxx',
     params
   })
 }
