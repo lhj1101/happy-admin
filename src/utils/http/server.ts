@@ -5,9 +5,9 @@ import axios, { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig, A
 import { API_CONFIG } from './config'
 import { handleRequestHeader, handleAuth, handleAuthError, handleGeneralError, handleNetworkError } from './tool'
 import { 
-  BaseRequestParams, 
+  BaseRequestParamsGet, 
+  BaseRequestParamsPost,
   ApiResponse, 
-  IAnyObj 
 } from '@/types/http'
 
 /**
@@ -53,21 +53,24 @@ axiosInstance.interceptors.response.use(
 /**
  * GET请求方法
  * @param url 请求地址
- * @param data 请求参数
+ * @param params 请求参数
  * @param config 请求配置
- * @returns Promise<[Error | null, ApiResponse<T> | undefined]>
+ * @returns Promise<(ApiResponse<T> | undefined)>
  */
 export const Get = <T = any>(
-  { url, data = {}, config }: BaseRequestParams
-): Promise<[Error | null, ApiResponse<T> | undefined]> => {
-  return new Promise((resolve) => {
+  { url, params = {}, config }: BaseRequestParamsGet
+): Promise<(ApiResponse<T> | undefined)> => {
+  return new Promise((resolve, reject) => {
     axiosInstance
-      .get(url, { data, ...config })
+      .get(url, { 
+        params,
+        ...config 
+      })
       .then((result) => {
-        resolve([null, result.data as ApiResponse<T>])
+        resolve(result.data as ApiResponse<T>)
       })
       .catch((err) => {
-        resolve([err, undefined])
+        reject(err)
       })
   })
 }
@@ -77,19 +80,19 @@ export const Get = <T = any>(
  * @param url 请求地址
  * @param data 请求数据
  * @param config 请求配置
- * @returns Promise<[Error | null, ApiResponse<T> | undefined]>
+ * @returns Promise<(ApiResponse<T> | undefined)>
  */
 export const Post = <T = any>(
-  { url, data = {}, config }: BaseRequestParams
-): Promise<[Error | null, ApiResponse<T> | undefined]> => {
-  return new Promise((resolve) => {
+  { url, data = {}, config }: BaseRequestParamsPost
+): Promise<(ApiResponse<T> | undefined)> => {
+  return new Promise((resolve, reject) => {
     axiosInstance
       .post(url, data, config)
       .then((result) => {
-        resolve([null, result.data as ApiResponse<T>])
+        resolve(result.data as ApiResponse<T>)
       })
       .catch((err) => {
-        resolve([err, undefined])
+        reject(err)
       })
   })
 }

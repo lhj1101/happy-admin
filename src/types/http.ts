@@ -1,7 +1,13 @@
 import { AxiosRequestConfig } from 'axios'
 
 // 基础请求参数接口
-export interface BaseRequestParams {
+export interface BaseRequestParamsGet {
+  url: string
+  params?: Record<string, unknown>
+  config?: Partial<RequestConfig>
+}
+
+export interface BaseRequestParamsPost {
   url: string
   data?: Record<string, unknown>
   config?: Partial<RequestConfig>

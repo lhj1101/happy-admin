@@ -27,8 +27,18 @@ const getList = async () => {
     const res = await userApi()
     console.log('resresres', res)
   } catch (error) {
-    console.log('error', error);
+    console.log('errorerrorerror', error);
   }
+  // try {
+  //   const [error, res] = await userApi()
+  //   if (error) {
+  //     console.error('API Error:', error)
+  //     return
+  //   }
+  //   console.log('API Response:', res)
+  // } catch (error) {
+  //   console.log('error', error);
+  // }
 }
 getList()
 

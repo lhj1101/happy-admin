@@ -1,10 +1,10 @@
-import { Get, Post } from "@/utils/http/server"
-import { BaseRequestParams } from '@/types/http'
+import { Get } from "@/utils/http/server"
+import { BaseRequestParamsGet } from '@/types/http'
 
-export const userApi = (data = {}) => {
-  return Get<BaseRequestParams>({
+export const userApi = (params = {}) => {
+  return Get<BaseRequestParamsGet>({
     url: '/app-projectSavior/home/getBanners',
-    data
+    params
   })
 }
 
