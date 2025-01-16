@@ -14,7 +14,11 @@ export default defineConfig(({ command, mode }) => {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         '@components': path.resolve(__dirname, 'src/components'),
-        '@assets': path.resolve(__dirname, 'src/assets')
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
+        '@api': path.resolve(__dirname, 'src/api'),
+        '@store': path.resolve(__dirname, 'src/store'),
+        '@types': path.resolve(__dirname, 'src/types')
       },
     },
     css: {
@@ -47,6 +51,14 @@ export default defineConfig(({ command, mode }) => {
           // drop_debugger: mode === 'production' // 生产环境移除 debugger
         },
       },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vue-vendor': ['vue', 'vue-router', 'pinia'],
+            'axios': ['axios']
+          }
+        }
+      }
     },
     optimizeDeps: {
       // 将频繁使用的包加入预构建
